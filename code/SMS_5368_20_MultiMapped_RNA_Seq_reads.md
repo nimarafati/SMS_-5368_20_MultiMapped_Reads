@@ -143,7 +143,7 @@ stats=stats \
     ## quartz_off_screen 
     ##                 2
 
-<img src="Summary_bbduk.png" alt="bbduk results. Proportion of reads and bases showing high similarity to the refernce (rRNA)." width="105%" />
+<img src="/<branch>/Summary_bbduk.png" alt="bbduk results. Proportion of reads and bases showing high similarity to the refernce (rRNA)." width="105%" />
 <p class="caption">
 bbduk results. Proportion of reads and bases showing high similarity to
 the refernce (rRNA).
