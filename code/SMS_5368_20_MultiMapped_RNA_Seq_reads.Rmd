@@ -130,7 +130,7 @@ stats=stats \
 ```{r, eval = T, echo = F}
 library(ggplot2)
 library(reshape2)
-bbduk_summary <- read.table("../results/Summary_bbduk.txt", header = T)
+bbduk_summary <- read.table('Summary_bbduk.txt', header = T)
 bbduk_summary_melt <- melt(bbduk_summary)
 colnames(bbduk_summary_melt) <- c('Sample', 'Category', 'Percentage')
 bbduk_summary_melt$Group <- gsub(replacement = "", pattern = "\\.*", perl = T, x = as.character(bbduk_summary_melt$Sample))
