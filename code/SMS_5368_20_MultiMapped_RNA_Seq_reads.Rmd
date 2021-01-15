@@ -141,7 +141,7 @@ dev.off()
 
 
 ```{r out.width = "105%", fig.cap = "bbduk results. Proportion of reads and bases showing high similarity to the refernce (rRNA).", echo = F}
-include_graphics("../results//Summary_bbduk.pdf")
+include_graphics("Summary_bbduk.pdf")
 ```
 
 
