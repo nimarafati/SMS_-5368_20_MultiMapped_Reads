@@ -1,27 +1,28 @@
 Background
 ==========
 
+Here I divide this code into three parts:  
+1- multimapped reads  
+2- rRNA  
+3- Evaluation of XenofilteR with MM\_treshold to assign the reads
+followed by QoRTs
+
+Multimapped reads
+-----------------
+
 From STAR log.final.out we can check proportion of reads mapped in
 different categories:
 
-Uniquely mapped reads %  
-% of reads mapped to multiple loci  
+% of Uniquely mapped reads % of reads mapped to multiple loci  
 % of reads unmapped: too many mismatches  
 % of reads unmapped: too short  
 % of chimeric reads
 
-Exploring content of multimapped reads
-======================================
+### Exploring content of multimapped reads
 
-Gene Expression
----------------
+#### Gene Expression
 
 First we extract multimapped reads:
-
-``` bash
-samtools view -h -f258 $STAR/$sample/${sample}.sort.bam | samtools view -bS - >$STAR/$sample/${sample}_multimapped.sort.bam
-samtools index $STAR/$sample/${sample}_multimapped.sort.bam
-```
 
 Then by using newly generated bam files, consisting of only multimapped
 reads, I extracted expression values by tweaking default parameters in
@@ -32,18 +33,6 @@ its reported alignments will be counted. The ‘NH’ tag in BAM/SAM input
 is used to detect multi-mapping reads (-M)
 
 We create expression file for each file:
-
-``` bash
-featureCounts_path="$INTERMEDIATE_DIR/featureCounts/Multi_mapped/$sample/"
-output="count-s-2"
-annotation="$GFF_FILE"
-mkdir -p \$featureCounts_path
-cd \$featureCounts_path
-~/glob/Software/subread-2.0.0-source/bin/featureCounts -s 2 -t exon -g locus_tag -F GFF -C -T $THREADS -p -B -M \
--o \$output \
--a \$annotation \
-$STAR$sample/${sample}_multimapped.sort.bam
-```
 
 Check the freq of multimapped reads featurecounts output:
 
@@ -143,10 +132,13 @@ stats=stats \
     ## quartz_off_screen 
     ##                 2
 
-<img src="/Summary_bbduk.png" alt="bbduk results. Proportion of reads and bases showing high similarity to the refernce (rRNA)." width="105%" height="100" />
+<img src="../results/Summary_bbduk.png" alt="bbduk results. Proportion of reads and bases showing high similarity to the refernce (rRNA)." width="105%" />
 <p class="caption">
 bbduk results. Proportion of reads and bases showing high similarity to
 the refernce (rRNA).
 </p>
 
 Between 40 and 60% of the reads seem to be rRNA.
+
+Evaluation of XenofilteR
+------------------------
