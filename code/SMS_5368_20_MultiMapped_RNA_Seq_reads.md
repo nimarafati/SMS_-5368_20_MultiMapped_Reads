@@ -58,7 +58,7 @@ ggplot(data = FC_summary_melt, aes(x = Status, y = Fraction)) + geom_boxplot()
 dev.off()
 ```
 
-<img src="../results//Multimapped_featurecount_summary_dist.pdf" alt="FeatureCounts summary distribution of all samples. " width="85%" />
+<img src="../results//Multimapped_featurecount_summary_dist.png" alt="FeatureCounts summary distribution of all samples. " width="85%" />
 <p class="caption">
 FeatureCounts summary distribution of all samples.
 </p>
@@ -87,7 +87,7 @@ for(s in samples$Sample){
 write.table(data_raw, paste0(path,'intermediate/featureCounts/STAR_chromosome_level_Trimmed/merged_gene_counts.txt'), col.names = T, row.names = F, quote = F, sep = '\t')
 ```
 
-<img src="../results//Ribosomal_vs_other_genes_expression_dist.pdf" alt="Gene expression distribution in three categories: ribosomal proteins, rRNA, and the rest (other)" width="85%" />
+<img src="../results//Ribosomal_vs_other_genes_expression_dist.png" alt="Gene expression distribution in three categories: ribosomal proteins, rRNA, and the rest (other)" width="85%" />
 <p class="caption">
 Gene expression distribution in three categories: ribosomal proteins,
 rRNA, and the rest (other)
